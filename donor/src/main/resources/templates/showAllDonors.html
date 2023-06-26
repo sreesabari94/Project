@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Available Donors</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div clas="container">
+    <h1>Donors List</h1>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Donor First Name</th>
+            <th>Donor Last Name</th>
+            <th>Donor Email</th>
+            <th>Donor Contact Number</th>
+            <th>Donor Blood Group</th>
+            <th>Donor City</th>
+            <th>Donor Available Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="donor : ${listDonors}">
+            <td th:text="${donor.firstName}"></td>
+            <td th:text="${donor.lastName}"></td>
+            <td th:text="${donor.email}"></td>
+            <td th:text="${donor.contactNumber}"></td>
+            <td th:text="${donor.bloodGroup}"></td>
+            <td th:text="${donor.city}"></td>
+            <td th:text="${donor.donationDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/showRegistrationPage}" class="btn btn-primary">Registration Page</a>
+    <a th:href="@{/searchDonors}" class="btn btn-primary">Search Donors</a>
+</div>
+</body>
+</html>
